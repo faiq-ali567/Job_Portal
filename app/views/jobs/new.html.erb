@@ -1,0 +1,31 @@
+<h1>Post a New Job</h1>
+
+<%= form_with(model: @job, local: true) do |form| %>
+  <% if @job.errors.any? %>
+      <ul>
+        <% @job.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+  <% end %>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+<br/>
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+<br/>
+
+  <%= form.label :salary %>
+  <%= form.number_field :salary %>
+<br/>
+  <%= form.label :location %>
+  <%= form.text_field :location, class: 'form-control' %>
+<br/>
+  <%= form.label :documents, "Upload Documents" %>
+  <%= form.file_field :documents, multiple: true %>
+<br/>
+
+
+  <%= form.submit "Create Job" %>
+
+<% end %>

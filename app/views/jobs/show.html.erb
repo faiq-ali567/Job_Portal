@@ -1,0 +1,23 @@
+
+
+<h1> <%= @job.title %> </h1>
+<h3> Description: </h3>
+<p> <%= @job.description %> </p>
+<h3> Salary: </h3>
+<h3> <%= @job.salary %> </h3>
+<h3> Location: </h3>
+<h3> <%= @job.location %> </h3>
+
+<ul>  
+
+  <% @job.documents.each do |doc| %>
+
+
+      <li> <%= link_to doc.filename.to_s, url_for(doc) %> </li>
+
+
+  <% end%>
+</ul>
+
+
+<%= link_to 'Back', jobs_path %>
