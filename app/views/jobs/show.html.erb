@@ -19,5 +19,13 @@
   <% end%>
 </ul>
 
+<% if can? :destroy, @job %>
+  <%= button_to 'Delete', @job, method: :delete %>
+
+<%end%>
+
+<% if can? :create, Application%>
+  <%= link_to 'Apply', new_job_application_path(@job) %>
+<%end%>
 
 <%= link_to 'Back', jobs_path %>

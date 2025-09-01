@@ -2,8 +2,9 @@
 
 
 <h1>Job Listings</h1>
-<%= link_to 'New Job', new_job_path %>
-
+<% if can? :create, Job %>
+    <%= link_to 'New Job', new_job_path %>
+<%end%>
 
 <% @jobs.each do |job| %>
     <h1>Title: </h1> <%= link_to job.title, job_path(job) %>
@@ -12,3 +13,4 @@
 <% end %>
 
 
+<%== pagy_nav(@pagy) if @pagy.pages > 1 %>

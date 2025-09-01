@@ -1,0 +1,11 @@
+<h1>Apply for <%= @job.title %></h1>
+
+<%= form_with(model: [@job, @application], local: false) do |form| %>
+
+    <%= form.label :resume, "Resume" %>
+    <%= form.file_field :resume, require: true %>
+
+    <%= form.label :cover_letter, "Cover Letter" %>
+    <%= form.file_field :cover_letter %>
+    <%= form.submit "Apply" %>
+<% end %>

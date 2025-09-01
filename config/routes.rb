@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  root 'jobs#index'
   devise_for :users
-  resources :jobs
+
+  resources :jobs do
+    resources :applications, only: [:new, :create]
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

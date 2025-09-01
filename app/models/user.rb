@@ -20,8 +20,8 @@ class User < ApplicationRecord
 
   def validate_picture
     
-    formats = ["image/jpeg", "image/png", "image/webp"]
-    if picture.attached? == true &&  formats.include?(picture.blob.content_type)
+    formats = ["image/jpeg", "image/png"]
+    if picture.attached? == true &&  formats.include?(picture.blob.content_type) == false
       errors.add(:picture, "Wrong Format.")
     end
   end
